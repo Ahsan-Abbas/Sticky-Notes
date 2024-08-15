@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Trash from "../src/icons/Trash.jsx";
+import Spinner from "../src/icons/Spinner.jsx";
+import { db } from "../appwrite/databases.js";
 import { setNewOffset, autoGrow, setZIndex, bodyParser } from "../utils.js";
 
 const NoteCard = ({ note }) => {
+  const [saving, setSaving] = useState(false);
+  const keyUpTimer = useRef(null);
+
   const body = bodyParser(note.body);
   let [position, setPosition] = useState(JSON.parse(note.position));
   const colors = JSON.parse(note.colors);
@@ -51,7 +56,33 @@ const NoteCard = ({ note }) => {
   const mouseUp = () => {
     document.removeEventListener("mousemove", mouseMove);
     document.removeEventListener("mouseup", mouseUp);
+
+    const newPosition = setNewOffset(cardRef.current);
+    saveData('position', newPosition);
+    //db.notes.update(note.$id, { position: JSON.stringify(newPosition) });
   };
+
+  const saveData = async (key, value) => {
+    const payload = { [key]: JSON.stringify(value) };
+    try {
+      await db.notes.update(note.$id, payload);
+    } catch (error) {
+      console.error(error);
+    }
+    setSaving(false);
+  };
+
+  const handleKeyUp = async () => {
+    setSaving(true);
+
+    if (keyUpTimer.current) {
+      clearTimeout(keyUpTimer.current);
+    }
+
+    keyUpTimer.current = setTimeout(() => {
+      saveData('body', textAreaRef.current.value);
+    }, 2000)
+  }
 
   return (
     <div
@@ -69,9 +100,18 @@ const NoteCard = ({ note }) => {
         style={{ backgroundColor: colors.colorHeader }}
       >
         <Trash />
+        {
+          saving && (
+            <div className="card-saving">
+              <Spinner color={colors.colorText} />
+              <span style={{ color: colors.colorText }}>Saving...</span>
+            </div>
+          )
+        }
       </div>
       <div className="card-body">
         <textarea
+          onKeyUp={handleKeyUp}
           ref={textAreaRef}
           style={{ color: colors.colorText }}
           defaultValue={body}
