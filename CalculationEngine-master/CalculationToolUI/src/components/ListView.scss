@@ -1,0 +1,67 @@
+#calculation-ui {
+  .listview-wrapper {
+    .listview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .switch {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      &.switch-right {
+        justify-content: flex-end;
+      }
+
+      &.switch-left {
+        justify-content: flex-start;
+      }
+
+      &.switch-center {
+        justify-content: center;
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        padding: 0;
+        color: var(--input-primary-color);
+        background-color: var(--color-white);
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+
+        &:first-child {
+          margin-right: 5px;
+        }
+
+        &.switch-active,
+        &:hover {
+          color: var(--color-white) !important;
+          background-color: var(--neutral-100) !important;
+          border-radius: 4px;
+
+          path {
+            fill: var(--color-white);
+          }
+        }
+
+        .icon {
+          font-size: 2.25em;
+          //padding: 4px 8px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .listview-wrapper {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "version": 1.1,
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-css-languageservice/master/docs/customData.schema.json",
+  "atDirectives": [
+    {
+      "name": "@container",
+      "description": {
+        "kind": "markdown",
+        "value": "Temporary workaround for making VSCode accept **@container**"
+      }
+    }
+  ],
+  "properties": [
+    {
+      "name": "container-type",
+      "description": {
+        "kind": "markdown",
+        "value": "Temporary workaround for making VSCode accept **container-type**"
+      }
+    },
+    {
+      "name": "container-name",
+      "description": {
+        "kind": "markdown",
+        "value": "Temporary workaround for making VSCode accept **container-name**"
+      }
+    },
+    {
+      "name": "container",
+      "description": {
+        "kind": "markdown",
+        "value": "Temporary workaround for making VSCode accept **container**"
+      }
+    }
+  ]
+}

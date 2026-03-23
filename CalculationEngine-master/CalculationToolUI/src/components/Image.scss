@@ -1,0 +1,38 @@
+#calculation-ui {
+  .img-wrapper {
+    //margin: 0 0 64px 0;
+    margin: 10px 0;
+
+    .responsive {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .thumbnail {
+      height: 250px;
+      width: 250px;
+      object-fit: cover;
+    }
+
+    .column {
+      object-fit: scale-down;
+      display: block;
+      margin: 0px;
+      max-width: 100%;
+    }
+
+    .center {
+      margin: 0px auto;
+    }
+
+    .right {
+      margin: 0px 0px 0px auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .img-wrapper {
+      margin: 20px 0;
+    }
+  }
+}

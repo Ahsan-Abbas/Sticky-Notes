@@ -1,0 +1,22 @@
+#calculation-ui {
+  .paging-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    border-top: 1px solid var(--neutral-500);
+    margin-top: 50px;
+
+    .sub-paging-btns {
+      display: flex;
+      align-items: center;
+    }
+
+    &.btn-end {
+      justify-content: flex-end;
+    }
+  }
+
+  @media(max-width: 768px) {
+    padding: 20px 0;
+  }
+}

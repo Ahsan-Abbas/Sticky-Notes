@@ -1,0 +1,214 @@
+#calculation-ui {
+
+  .highlight-background .table-wrapper .flex-row~.flex-row // .table-wrapper .flex-row {
+
+    {
+    border-top: 1px solid var(--neutral-500);
+    background-color: var(--background-highlight);
+    padding: 10px 0px !important;
+
+    &:not(:first-child) {
+      background-color: none;
+    }
+  }
+
+  .highlight-background.horizontal-lines .flex-row {
+    padding: 10px 0 !important;
+  }
+
+  .table-wrapper {
+
+    .flex-cell {
+      padding: 5px;
+      display: flex;
+
+      .flex-sub-cell~.flex-sub-cell {
+        margin-left: 5px;
+      }
+
+      .title-cell {
+        p {
+          font-weight: bold;
+          color: black;
+        }
+      }
+
+      .flex-sub-cell {
+        flex-grow: 1;
+        flex-basis: 0;
+
+        select,
+        input {
+          font-size: 14px;
+          height: 38px;
+        }
+
+        .sub-info:not(:last-child) {
+          margin-bottom: 10px;
+        }
+
+        .title {
+          margin-bottom: 5px;
+          font-size: 11px;
+          text-wrap: nowrap;
+        }
+
+        .value {
+          font-weight: 800;
+          font-size: 11px;
+        }
+
+        // &:last-child {
+        //   display: grid;
+        //   align-items: center;
+        // }
+      }
+    }
+
+    .col-selection {
+      width: 40px;
+      /* You can adjust the width as needed */
+      display: flex;
+      align-items: center;
+    }
+
+    .flex-row {
+      display: flex;
+      align-items: center;
+      //border-bottom: 1px solid #ccc;
+      padding: 10px 20px;
+    }
+
+    /* Adjusting styles for the new structure */
+    .flex-cell {
+      flex: 1;
+      padding-left: 5px;
+    }
+
+    /* ... Previous CSS styles ... */
+
+    /* Style for even rows */
+    .flex-row:nth-child(odd) {
+      background-color: var(--background-highlight);
+      /* You can adjust the text color as needed */
+    }
+
+    /* Styling for radio and checkbox labels */
+    .flex-cell label {
+      display: flex;
+      align-items: center;
+    }
+
+    .title-cell {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 16px;
+
+      p {
+        line-height: 1.5;
+      }
+    }
+
+    /* Styling for radio and checkbox inputs */
+    .radio-input {
+      margin-right: 5px;
+    }
+
+    .checkbox-input {
+      margin-right: 5px;
+    }
+
+    .empty-records {
+      text-align: center;
+      margin: 1rem;
+    }
+  }
+
+  /* Add a media query for mobile devices hhh*/
+  // @media (max-width: 768px) {
+  // .table-wrapper {
+  //   overflow-x: auto;
+  //   max-width: 100%;
+
+  //   &.table-scroll {
+  //     min-width: 100%;
+  //   }
+
+  //   .flex-cell {
+  //     min-width: 235px;
+  //   }
+
+  //   .col-selection {
+  //     width: 50px;
+  //   }
+
+  //   .flex-cell:nth-child(n + 2) {
+  //     min-width: 550px;
+  //   }
+  // }
+  @media (max-width: 767px) {
+
+    .table-container {
+      // width: 100%;
+
+      /* Hide any overflowing content */
+      .table-wrapper {
+        width: 108%;
+        overflow-x: auto;
+        display: block;
+        /* Change the display property to block */
+
+        .flex-row {
+          padding: 10px;
+        }
+      }
+
+      .flex-cell,
+      .flex-sub-cell {
+        flex: 0 0 auto !important;
+        /* Reset the flex properties */
+        display: block;
+        margin: 0 !important;
+        /* Change the display property to block */
+      }
+
+      .flex-cell {
+        display: flex !important;
+        width: 130px !important;
+        padding: 0 !important;
+
+        .col-selection {
+          width: 26px;
+        }
+
+        .title-cell {
+          font-size: 13px;
+        }
+
+        .flex-sub-cell {
+          width: 175px;
+          padding: 15px 5px;
+        }
+      }
+
+      .flex-row {
+        padding: 10px !important;
+
+        &:nth-child(odd) {
+          .flex-sub-cell {
+            background-color: var(--background-highlight);
+            height: 135px;
+            /* You can adjust the text color as needed */
+          }
+        }
+      }
+    }
+
+
+
+    /* Reset any other relevant flex properties for other elements within your table */
+  }
+
+  // }
+}

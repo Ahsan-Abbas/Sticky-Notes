@@ -1,0 +1,783 @@
+@import url('https://fonts.cdnfonts.com/css/avenir-lt-std');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/solid.min.css');
+
+//Styles for the calculation tool
+//All styles should be scoped inside #calculation-ui
+body{
+  margin: 0;
+  padding: 0;
+}
+#calculation-ui {
+  --input-primary-sample-order-color:  #000000;
+
+  /* Used for primary actions and for highlighting selected values */
+  --input-primary-color: #D20014;
+  --input-primary-color-hover: #9f000f;
+  /* Used for secondary actions */
+  --input-secondary-color: white;
+  /* Borders for all non-highlighted inputs/values */
+  --input-border-color: #BFC0C0;
+
+  --text-size-large: 20px;
+  --text-size-medium: 16px;
+  --text-size-small: 12px;
+  --text-size-input: 1.25rem;
+  --text-color-disabled: lightgrey;
+
+  --base-text-size: var(--text-size-medium);
+
+  --mobile-base-text-size: 10px;
+  --mobile-text-size: 12px;
+  --mobile-text-size-medium: 14px;
+
+  --background-highlight: #F4F8FE;
+
+  --neutral-100: #EFEFEF;
+  --neutral-200: #BFC0C0;
+  --neutral-300: #b5b5b5;
+  --neutral-400: #ECECEC;
+  --neutral-500: #CECECE;
+  //--neutral-600: #ABABAB;
+  //--neutral-700: #A8A8A8;
+  --neutral-800: #4E4D4D;
+  --neutral-900: #777777;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --col-min-width: 200px;
+  --column-spacing: 30px;
+
+  --primary-color-rgb: 210, 0, 20;
+  --secondary-color-rgb: 206, 206, 206;
+
+  margin: 0 auto;
+  font-size: var(--base-text-size);
+  color: black;
+
+  //CSS Reset
+  html {
+    box-sizing: border-box;
+    font-size: var(--text-size-medium);
+  }
+
+  * {
+    font-family: Avenir, "Avenir LT Std", sans-serif;
+  }
+
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+  }
+
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  // ol,
+  // ul {
+  //   list-style: none;
+  // }
+
+  // nav ul {
+  //   list-style: none;
+  // }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  // UTILITY CLASSES
+
+  .warning {
+    font-weight: bold;
+    color: var(--input-primary-color);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .mb-1 {
+    margin-bottom: 1rem;
+  }
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5 {
+    font-weight: bold;
+    word-break: break-word;
+    font-size: var(--base-text-size);
+  }
+
+  h1,
+  .h1 {
+    --base-text-size: 28px;
+  }
+
+  h2,
+  .h2 {
+    --base-text-size: 25px;
+  }
+
+  h3,
+  .h3 {
+    --base-text-size: 22px;
+  }
+
+  h4,
+  .h4 {
+    --base-text-size: 20px;
+  }
+
+  h5,
+  .h5 {
+    --base-text-size: 18px;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
+
+  // input,
+  // .select {
+  //   margin-bottom: 1.5em;
+  // }
+
+  .primary-text {
+    color: var(--input-primary-color);
+    font-weight: bold;
+    font-size: var(--text-size-medium);
+  }
+
+  .cap-text {
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+  }
+
+  hr {
+    margin: 1rem 0;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  // .hr {
+  //   margin: 0 0 0 80px;
+  // }
+
+  // GRID SYSTEM
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    //justify-content: space-between;
+    justify-content: flex-start;
+    column-gap: var(--column-spacing);
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .required {
+    color: var(--input-primary-color);
+    font-weight: 600;
+    margin-left: 3px;
+  }
+
+  .col-0 {
+    width: 100%;
+    display: flex;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10 {
+    flex-grow: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    //padding-right: 15px;
+    //padding-left: 15px;
+    min-width: var(--col-min-width);
+    flex-basis: calc(100%/var(--cols) - (15px * (var(--cols) - 1)));
+    width: auto;
+    max-width: none !important;
+  }
+
+  .col-1 {
+    --cols: 1;
+  }
+
+  .col-2 {
+    --cols: 2;
+  }
+
+  .col-3 {
+    --cols: 3;
+  }
+
+  .col-4 {
+    --cols: 4;
+  }
+
+  .col-5 {
+    --cols: 5;
+  }
+
+  .col-6 {
+    --cols: 6;
+  }
+
+  .col-7 {
+    --cols: 7;
+  }
+
+  .col-8 {
+    --cols: 8;
+  }
+
+  .col-9 {
+    --cols: 9;
+  }
+
+  .col-10 {
+    --cols: 10
+  }
+
+  [class*=" col-"],
+  [class^=col-] {
+    float: none;
+  }
+
+  //container queries are used to make the grid responsive and reduce the amount of columns when the container is too small
+  //max-width: calc((--cols * --col-min-width) + (30px * (--cols - 1)))
+  @container (max-width: 430px) {
+
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10 {
+      --cols: 1;
+    }
+  }
+
+  @container (max-width: 660px) {
+
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10 {
+      --cols: 2;
+    }
+  }
+
+  @container (max-width: 890px) {
+
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10 {
+      --cols: 3;
+    }
+  }
+
+  @container (max-width: 1120px) {
+
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10 {
+      --cols: 4;
+    }
+  }
+
+  @container (max-width: 1350px) {
+
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10 {
+      --cols: 5;
+    }
+  }
+
+  @container (max-width: 1580px) {
+
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10 {
+      --cols: 6;
+    }
+  }
+
+  @container (max-width: 1810px) {
+
+    .col-8,
+    .col-9,
+    .col-10 {
+      --cols: 7;
+    }
+  }
+
+  @container (max-width: 2040px) {
+
+    .col-9,
+    .col-10 {
+      --cols: 8;
+    }
+  }
+
+  @container (max-width: 2270px) {
+
+    .col-10 {
+      --cols: 9;
+    }
+  }
+
+  .bg {
+    background-color: var(--neutral-300);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: rgba(128, 46, 76, 0.15);
+    border: 1px solid rgba(144, 39, 118, 0.2);
+  }
+
+  .icon {
+    margin: 0 5px;
+  }
+
+  .configurator-content {
+    max-width: 1000px;
+    margin: 0px auto;
+    container-type: inline-size;
+  }
+
+  .label-with-ctrl {
+    // margin-bottom: 32px;
+    margin-bottom: 50px;
+  }
+
+  .horizontal-lines {
+    .label-with-ctrl {
+      margin: 10px 0 !important;
+    }
+  }
+
+  .highlight-background {
+    padding-right: var(--column-spacing);
+    padding-left: var(--column-spacing);
+    background-color: var(--background-highlight);
+    // padding-bottom: (var(--column-spacing));
+
+    .label-with-ctrl {
+      padding: 20px 0 !important;
+    }
+
+    >.highlight-background {
+      padding-right: 0px;
+      padding-left: 0px;
+      padding-bottom: 20px;
+    }
+
+    .label-with-ctrl {
+      padding: 15px 0 !important;
+      margin: 0 !important;
+    }
+  }
+
+  .horizontal-lines {
+
+    &:empty {
+      border-bottom: none;
+    }
+
+    .label-with-ctrl {
+      padding: 10px 0 !important;
+      margin: 0 !important;
+    }
+
+    // .hr:not(:last-child) {
+    border-bottom: 1px solid var(--neutral-500);
+    padding: 0 30px;
+
+    .hr {
+      padding-bottom: 15px;
+      margin-top: 0 !important;
+    }
+
+    .hr:not(:last-child) {
+      border-bottom: 1px solid var(--neutral-500);
+      //padding: 0 20px;
+    }
+  }
+
+  .horizontal-lines {
+    .horizontal-lines {
+      padding: 0 !important;
+
+      // &:not(:last-child) {
+      //   border-bottom: none;
+      // }
+    }
+  }
+
+  // .hr {
+  //   &.label-with-ctrl {
+  //     margin-bottom: 12px !important;
+  //   }
+  // }
+
+
+
+  // .container {
+  //   .hr {
+  //     margin-top: 50px !important;
+  //     background-color: beige;
+  //   }
+  // }
+  div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__TABLE_WITH_LINES.DISCLAIMER_TEXT"],
+  div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__TABLE_WITH_LINES"],
+  div[data-section="STANDARD_VIEW_01.RESULT_PAGE"] .horizontal-lines,
+  div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.RESULT_PAGE"].horizontal-lines {
+    border-bottom: none;
+  }
+
+  div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__SIGN_UP__DOWNLOAD"],
+  div[data-section="STANDARD_VIEW_01.RESULT_PAGE.CONTACT_US"] {
+    .label-with-ctrl {
+      margin-bottom: 10px;
+    }
+
+    div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__SIGN_UP__DOWNLOAD.VIEW_01.PAGE_1.SECTION_3"],
+    div[data-section="STANDARD_VIEW_01.RESULT_PAGE.CONTACT_US.VIEW_01.PAGE_1.SECTION_3"] {
+      margin-top: 15px;
+
+      label {
+        color: var(--neutral-900);
+        padding-top: 3px !important;
+      }
+    }
+  }
+
+  div[data-section="STANDARD_VIEW_01.RESULT_PAGE.BUTTONS"] {
+    .hr {
+      margin-top: 50px !important;
+      margin-bottom: 0px !important;
+    }
+  }
+
+  div[data-section="VIEW_1.PAGE_5__PRODUCT_SELECTION"] {
+    .label-with-ctrl:not(:first-child) {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .accordion-wrapper {
+    .label-with-ctrl {
+      margin-bottom: 20px;
+    }
+  }
+
+  // .label-with-ctrl:has(.h1) {
+  //   margin: 0;
+  // }
+
+  .highlight-background.horizontal-lines.container {
+    .table-container {
+      .flex-cell {
+        .flex-sub-cell {
+          .value {
+            font-size: 13px;
+          }
+
+          &:not(:first-child) {
+            .sub-info {
+              text-align: center;
+            }
+          }
+        }
+
+        .flex-sub-cell:nth-child(1) {
+          flex-grow: 2;
+        }
+
+        .flex-sub-cell:last-child {
+          display: flex;
+          justify-content: end;
+          flex-grow: 0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    body {
+      margin: 0 !important;
+    }
+
+    //margin: 0 10px;
+    // body {
+    //   margin: 0 20px !important;
+    // }
+
+    .label-with-ctrl {
+      margin-bottom: 10px;
+    }
+
+    div[data-section="VIEW_1.PAGE_5__PRODUCT_SELECTION.SECTION__ADD_CUSTOM_LAYERS"] {
+      flex-direction: column;
+    }
+
+    .horizontal-lines {
+      padding: 0 10px;
+    }
+
+    div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__RESULT"],
+    div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__TABLE_WITH_LINES"] {
+      width: auto !important;
+    }
+
+    .highlight-background.horizontal-lines.container {
+      .table-container {
+        .table-wrapper {
+          width: 100%;
+
+          .flex-cell {
+            .flex-sub-cell {
+              width: 130px;
+              height: auto;
+
+              &:last-child {
+                width: 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__SIGN_UP__DOWNLOAD.SECTION__DOWNLOAD_BUTTONS_02"] {
+    //   .col-3 {
+    //     --cols: 1;
+    //     margin-top: 10px !important;
+
+    //     .button {
+    //       width: 100%;
+
+    //     }
+    //   }
+    // }
+  }
+
+  @media (max-width: 767px) {
+    div[data-section="STANDARD_VIEW_01.RESULT_PAGE.BUTTONS"] {
+      .col-2 {
+        --cols: 1;
+        margin-top: 10px !important;
+
+        .button {
+          width: 100%;
+
+        }
+      }
+    }
+
+    div[data-section="STANDARD_VIEW_01.RESULT_PAGE.CONTACT_US.VIEW_01.PAGE_1.SECTION_3"],
+    div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__SIGN_UP__DOWNLOAD.VIEW_01.PAGE_1.SECTION_3"] {
+      .button {
+        width: 100%;
+
+      }
+    }
+
+    div[data-section="VIEW_1.PAGE_6__CALCULATION_RESULT.SECTION__SIGN_UP__DOWNLOAD.SECTION__DOWNLOAD_BUTTONS_02"] {
+      .col-3 {
+        --cols: 1;
+        margin-top: 10px !important;
+
+        .button {
+          width: 100%;
+
+        }
+      }
+    }
+
+    .highlight-background {
+      padding: 10px 20px;
+    }
+  }
+}

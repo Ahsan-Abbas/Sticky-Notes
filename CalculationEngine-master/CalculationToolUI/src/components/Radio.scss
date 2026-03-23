@@ -1,0 +1,117 @@
+#calculation-ui {
+  .radio-wrapper {
+
+    &.inline-radio {
+      display: inline-flex;
+      flex-wrap: wrap;
+    }
+
+    &.block-radio {
+      display: inline-block;
+    }
+
+    .incompatible {
+      color: var(--text-color-disabled);
+    }
+
+    .label-container {
+      //display: block;
+      display: flex;
+      position: relative;
+      //padding-left: 40px;
+      //padding-right: 15px;
+      //margin-bottom: 12px;
+      margin-right: 30px;
+      cursor: pointer;
+      font-size: var(--base-text-size);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      line-height: 2.25;
+      min-width: auto;
+      //margin-bottom: 10px;
+      align-items: center;
+
+      &:hover {
+        input {
+          ~ {
+            .checkmark {
+              background-color: #fff;
+            }
+          }
+        }
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        font-size: var(--base-text-size);
+
+        &:checked {
+          ~ {
+            .checkmark {
+              background-color: var(--input-primary-color);
+              border: 2px solid var(--input-primary-color);
+
+              &:after {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+
+      .checkmark {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        //display: inline-block;
+        display: flex;
+        margin-right: 12px;
+        align-items: center;
+        justify-content: center;
+        height: 29px;
+        width: 29px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 2px solid var(--input-primary-color);
+
+        &:after {
+          content: "";
+          //position: absolute;
+          display: none;
+          //top: 6px;
+          //left: 6px;
+          width: 11px;
+          height: 11px;
+          border-radius: 50%;
+          background-color: var(--color-white);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .radio-wrapper {
+
+
+      .label-container {
+        flex-basis: 20%;
+        flex-grow: 0;
+        margin-bottom: 5px;
+
+        .checkmark {
+          height: 22px;
+          width: 22px;
+
+          &:after {
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+    }
+  }
+}

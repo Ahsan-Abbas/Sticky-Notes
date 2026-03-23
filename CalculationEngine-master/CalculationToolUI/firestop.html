@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ROCKWOOL</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/src/firestop.css" />
+  </head>
+  <body>
+    <div id="header">
+      <div id="headercontent">
+      <h1>FirePro&reg; Detail Designer</h1>
+      <h2>The FirePro&reg; Detail Designer is a configuration tool for the creation of bespoke penetration seals which are based on the tested ROCKWOOL&reg; Standard Details</h2>
+      </div>
+    </div>
+    <div id="content-wrap">
+      <div 
+        id="calculation-ui" 
+        data-model="RW_FP_TEST_PARENT_MODEL" 
+        data-view="VIEW_01"
+        data-market="PL"
+        data-language="en"
+        data-theme="ROCKWOOL"
+      />
+    </div>
+
+    <script>
+      const ui = document.querySelector("#calculation-ui");
+      const params = new URLSearchParams(window.location.search);
+      const model = params.get("model");
+      if (model)
+        ui.dataset.model = model;
+      const view = params.get("view");
+      if (view)
+        ui.dataset.view = view;
+      const version = params.get("version");
+      if (version)
+        ui.dataset.packageVersion = version;
+      const wi = params.get("wi");
+      if (wi)
+        ui.dataset.wi = wi;
+    </script>
+
+    <script type="module" src="/src/calculation.tsx"></script>
+  </body>
+</html>

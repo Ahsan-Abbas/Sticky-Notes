@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\images\rockwool\Cable complete vertical.png" />
+    <None Remove="Resources\images\rockwool\cable completed horizontal.png" />
+    <None Remove="Resources\images\rockwool\cable in focus horizontal.png" />
+    <None Remove="Resources\images\rockwool\cable in focus vertical.png" />
+    <None Remove="Resources\images\rockwool\Cable not complete vertical.png" />
+    <None Remove="Resources\images\rockwool\cable not completed horizontal.png" />
+    <None Remove="Resources\images\rockwool\complete.png" />
+    <None Remove="Resources\images\rockwool\Floor.png" />
+    <None Remove="Resources\images\rockwool\in_focus.png" />
+    <None Remove="Resources\images\rockwool\not_started.png" />
+    <None Remove="Resources\images\rockwool\Pipe complete vertical.png" />
+    <None Remove="Resources\images\rockwool\Pipe completed horizontal.png" />
+    <None Remove="Resources\images\rockwool\pipe in focus horizontal.png" />
+    <None Remove="Resources\images\rockwool\Pipe In focus vertical.png" />
+    <None Remove="Resources\images\rockwool\pipe not complete horizontal.png" />
+    <None Remove="Resources\images\rockwool\Pipe not complete vertical.png" />
+    <None Remove="Resources\images\rockwool\Wall.png" />
+    <None Remove="Resources\Templates\PROD - Template Quantity calc.docx" />
+    <None Remove="Resources\Templates\PROD - Template U-value.docx" />
+    <None Remove="Resources\Templates\RW - Template Quantity calc - UK.docx" />
+    <None Remove="Resources\Templates\RW - Template U-value.docx" />
+    <None Remove="Resources\Templates\Fire Protection - Template.docx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\images\rockwool\Cable complete vertical.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\cable completed horizontal.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\cable in focus horizontal.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\cable in focus vertical.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\Cable not complete vertical.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\cable not completed horizontal.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\complete.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\Floor.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\in_focus.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\not_started.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\Pipe complete vertical.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\Pipe completed horizontal.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\pipe in focus horizontal.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\Pipe In focus vertical.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\pipe not complete horizontal.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\Pipe not complete vertical.png" />
+    <EmbeddedResource Include="Resources\images\rockwool\Wall.png" />
+    <EmbeddedResource Include="Resources\Templates\PROD - Template U-value.docx" />
+    <EmbeddedResource Include="Resources\Templates\PROD - Template Quantity calc.docx" />
+    <EmbeddedResource Include="Resources\Templates\RW - Template Quantity calc - UK.docx" />
+    <EmbeddedResource Include="Resources\Templates\RW - Template U-value.docx" />
+    <EmbeddedResource Include="Resources\Templates\Fire Protection - Template.docx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Client" Version="6.0.2" />
+    <PackageReference Include="GraphQL.Client.Serializer.Newtonsoft" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="8.0.0" />
+    <PackageReference Include="Quartz.AspNetCore" Version="3.8.0" />
+    <PackageReference Include="SolutionSpace.DocGen.Engine" Version="0.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+
+</Project>

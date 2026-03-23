@@ -1,0 +1,39 @@
+#calculation-ui {
+  .pagination-wrapper {
+    ul {
+      justify-content: flex-end;
+      display: flex;
+      padding: 1rem 0;
+      justify-items: baseline;
+
+      li {
+        margin: auto 5px;
+        list-style: none;
+
+        button {
+          border: none;
+          background-color: transparent;
+          font-size: 16px;
+          color: var(--input-primary-color);
+          font-weight: bold;
+          cursor: pointer;
+
+          &.disabled {
+            opacity: 0.65;
+            font-weight: 400;
+            cursor: context-menu;
+          }
+        }
+
+        input {
+          border: 1px solid var(--neutral-200);
+          padding: 5px;
+          border-radius: 4px;
+          width: 60px;
+          margin-bottom: 0 !important;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

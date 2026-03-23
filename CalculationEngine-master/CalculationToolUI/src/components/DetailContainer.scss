@@ -1,0 +1,69 @@
+#calculation-ui {
+  .detail-container {
+    width: 100%;
+    height: 100%;
+    background: #f9f9f9;
+    padding: 40px;
+    margin-top: 32px;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .detail {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: flex-start;
+      .detail-heading{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #000000;
+        .detail-title {
+          font-size: 24px;
+          font-weight: 700;
+          color: #161616;
+        }
+        .detail-title-description {
+          font-size: 16px;
+          font-weight: 500;
+          color: #161616;
+        }
+      }
+      .detail-properties {
+        display: flex;
+        gap: 20px 40px;
+        flex-wrap: wrap;
+        .property {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          justify-content: flex-start;
+          align-items: flex-start;
+          width: 212px;
+          .prop-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #161616;
+          }
+          .prop-description {
+            font-size: 16px;
+            font-weight: 500;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 1025px) and (max-width: 1439px) {
+    .property{
+      width: 182px !important;
+    }
+  }
+}

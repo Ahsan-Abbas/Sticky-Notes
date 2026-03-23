@@ -1,0 +1,28 @@
+﻿[*.cs]
+
+# IDE0011: Add braces
+csharp_prefer_braces = false
+
+# IDE0058: Expression value is never used
+dotnet_diagnostic.IDE0058.severity = none
+
+# IDE0008: Use explicit type
+dotnet_diagnostic.IDE0008.severity = none
+
+# IDE0002: Simplify Member Access
+dotnet_diagnostic.IDE0002.severity = none
+
+[*.{cs,vb}]
+indent_style=space
+
+[*.{js,jsx,ts,tsx,json,css,scss}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+charset = "utf-8"
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[**.min.js]
+indent_style = ignore
+insert_final_newline = ignore

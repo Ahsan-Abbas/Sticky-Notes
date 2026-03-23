@@ -1,0 +1,31 @@
+#calculation-ui {
+    .textarea{
+        position: relative;
+        textarea {
+            resize: vertical;
+            border: 1px solid #8a8c8f;
+            border-radius: 0px;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            min-height: 80px;
+            max-height: 160px;
+            font-size: 16px;
+            line-height: 21.86px;
+            &:focus {
+                outline: none;
+            }
+        }
+        .textarea-content {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14.4px;
+            color: #8a8c8f;
+            width: fit-content;
+            position: absolute;
+            right: 10px;
+            bottom: 4px;
+            z-index: 4;
+        }
+    }
+}

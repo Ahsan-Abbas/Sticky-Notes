@@ -1,0 +1,82 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+variables:
+  nodeVersion: '16.x'
+  solution: 'ROCKWOOL.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+    feedsToUse: config
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=true /p:PublishUrl="$(Build.ArtifactStagingDirectory)"'
+#    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(Build.ArtifactStagingDirectory)"'
+    
+- task: NodeTool@0
+  inputs:
+    versionSpec: '$(nodeVersion)'
+  displayName: 'Install Node.js'
+
+#- script: |
+#    npm install
+#    npm run build
+#    npm run build-storybook
+#  displayName: 'npm install and build'
+#  workingDirectory: 'CalculationToolUI'
+
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    command: 'install'
+    workingDir: 'CalculationToolUI'
+
+- task: Npm@1
+  displayName: 'npm build'
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'
+    workingDir: 'CalculationToolUI' 
+
+- task: Npm@1
+  displayName: 'npm storybook build'
+  inputs:
+    command: 'custom'
+    customCommand: 'run build-storybook'
+    workingDir: 'CalculationToolUI' 
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Frontend Artifact'
+  inputs:
+    PathtoPublish: 'CalculationToolUI/dist' #'$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'CalculationToolUI'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Backend Artifact'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'ConfiguratorEnrichedAPI'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Scripts'
+  inputs:
+    PathtoPublish: 'Scripts'
+    ArtifactName: 'Scripts'

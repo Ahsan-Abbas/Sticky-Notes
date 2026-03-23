@@ -1,0 +1,96 @@
+#calculation-ui {
+  .input-wrapper {
+    .phone-number-sample-order {
+      display: grid;
+      grid-template-areas: "select";
+      grid-template-columns: 1fr 8px;
+      position: relative;
+      width: 56px;
+      height: 30px;
+      cursor: pointer;
+      border: 0px !important;
+      padding: 0px !important;
+      .phone-select-content {
+        color: #000;
+        font-size: 16px;
+        font-weight: 400;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .empty {
+        color: #8a8c8f !important;
+      }
+      .phone-arrow-content::after {
+        content: "\f107";
+        font-family: "Font Awesome 6 free";
+        height: 30px;
+        width: 8px;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+      }
+    }
+    .display-none {
+      display: none !important;
+    }
+    .options {
+      width: 220px;
+      height: 100%;
+      max-height: 248px;
+      background-color: #fff;
+      border-top: 0px !important;
+      border-bottom: 1px solid #8a8c8f !important;
+      border-left: 1px solid #8a8c8f !important;
+      border-right: 1px solid #8a8c8f !important;
+      position: relative;
+      z-index: 3;
+      overflow-y: overlay;
+      overflow-x: hidden;
+      top: 0px;
+      left: 0px;
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #63666a;
+        border-radius: 4px;
+        height: 54px;
+      }
+
+      ul {
+        li {
+          display: flex;
+          align-items: center;
+          list-style: none;
+          width: 220px;
+          height: 31px;
+          padding: 4px 12px;
+          &:hover {
+            background-color: #4a93de;
+            color: #fff;
+          }
+          .selected {
+            background-color: #4a93de;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .phone-number-combined-input {
+      border: 0px !important;
+      outline: none;
+      width: calc(100% - 56px) !important;
+      height: 30px;
+    }
+    @media (max-width: 768px) {
+      font-size: var(--mobile-text-size-medium);
+    }
+  }
+}

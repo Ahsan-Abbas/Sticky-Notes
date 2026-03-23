@@ -1,0 +1,128 @@
+#calculation-ui {
+  .accordion-wrapper {
+    margin: 20px 0;
+
+    .accordion-item {
+      background-color: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, .125);
+      padding: 1.25rem 0;
+
+      &.accordion-item:first-of-type {
+        border-top: 1px solid rgba(0, 0, 0, .125);
+      }
+
+      .expand {
+        display: flex;
+      }
+
+      .collapse {
+        display: none;
+      }
+
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-actions {
+          display: flex;
+        }
+
+        .header-section {
+          width: 100%;
+
+          .label-with-ctrl {
+            margin-bottom: 0px;
+          }
+
+          .label,
+          .label-input-layout {
+            margin: 0 5px 0 0 !important;
+          }
+
+          .label-input-layout {
+            align-items: baseline;
+          }
+
+          .center {
+            text-align: center;
+          }
+
+          .left {
+            text-align: left;
+          }
+
+          .right {
+            text-align: right;
+          }
+
+          .header {
+            margin-bottom: 0.5em;
+          }
+        }
+
+        button {
+          background-color: #fff;
+          border: none;
+          font-size: 1.5em;
+          color: var(--input-primary-color);
+          cursor: pointer;
+          // width: 2.5rem;
+
+          svg {
+            margin: 0;
+          }
+
+          .icon-active {
+            color: var(--input-primary-color);
+          }
+        }
+      }
+
+      .accordion-expand {
+        padding: 0.5rem 0;
+
+        .accordion-content {
+          .label-with-ctrl {
+            .label {
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              height: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 767px) {
+
+    .accordion-wrapper {
+      .accordion-item {
+        .accordion-header {
+
+          .header-section {
+
+            //width: calc(100% - 50px) !important;
+            .container {
+              display: inline !important;
+            }
+
+            .header {
+              font-size: 20px;
+            }
+          }
+
+          .header-actions {
+            img.icon {
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

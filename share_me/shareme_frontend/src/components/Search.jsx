@@ -1,0 +1,38 @@
+import React, { useState, useEffect } from "react";
+import MasonryLayout from "./MasonryLayout";
+import { client } from "../client";
+import { FeedQuery, searchQuery } from "../utils/Data";
+import Spinner from "./Spinner";
+
+const Search = ({ searchTerm }) => {
+  const [pins, setPins] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (searchTerm) {
+      setLoading(true);
+      const query = searchQuery(searchTerm);
+      client.fetch(query).then((data) => {
+        setPins(data);
+        setLoading(false);
+      });
+    } else {
+      client.fetch(FeedQuery).then((data) => {
+        setPins(data);
+        setLoading(false);
+      });
+    }
+  }, [searchTerm]);
+
+  return (
+    <div>
+      {loading && <Spinner message="Searching for pins..." />}
+      {pins?.lenght !== 0 && <MasonryLayout pins={pins} />}
+      {pins?.lenght === 0 && searchTerm !== "" && !loading && (
+        <div className="mt-10 text-center text-xl ">No Pins Found</div>
+      )}
+    </div>
+  );
+};
+
+export default Search;

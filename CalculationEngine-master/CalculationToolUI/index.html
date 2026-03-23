@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ROCKWOOL</title>
+    <link rel="icon" href="data:,">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div>
+    <div id="debug-calculation-ui" /></div>
+    <div>
+    <div 
+      id="calculation-ui" 
+      data-model="U_VALUE_APP" 
+      data-view="VIEW_1"
+      data-market="RW_PL"
+      data-language="en-US"
+      data-theme="ROCKWOOL"
+      data-sampleorder= 'false'
+    /></div>
+
+    <script>
+      const ui = document.querySelector("#calculation-ui");
+      const params = new URLSearchParams(window.location.search);
+      const model = params.get("model");
+      if (model)
+        ui.dataset.model = model;
+      const language = params.get("language");
+      if (language)
+        ui.dataset.language = language;
+      const view =  params.get("view");
+      if (view)
+        ui.dataset.view = view;
+      const version = params.get("version");
+      if (version)
+        ui.dataset.packageVersion = version;
+      const wi = params.get("wi");
+      if (wi)
+        ui.dataset.wi = wi;
+      const market = params.get("market");
+      if (market)
+        ui.dataset.market = market;
+      const load = params.get("load");
+      if (load)
+        ui.dataset.load = load;
+      const sampleorder = params.has("sampleorder");
+      if (sampleorder){
+        ui.dataset.sampleorder = sampleorder;   
+        ui.style.height =  "100vh";
+        ui.style.overflow= 'hidden'
+      }
+       </script>
+
+    <script type="module" src="/src/calculation.tsx"></script>
+
+    <script>
+      //ui.addEventListener("calculation-loaded", e => console.log("loaded"));
+      //ui.addEventListener("calculation-userselection", e => console.log("userselection", e.detail));
+    </script>
+  </body>
+</html>

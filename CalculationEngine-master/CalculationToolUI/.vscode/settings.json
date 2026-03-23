@@ -1,0 +1,38 @@
+{
+  "editor.formatOnSave": true,
+  "xmlTools.splitXmlnsOnFormat": false,
+  "editor.defaultFormatter": "EditorConfig.EditorConfig",
+  "editorconfig.generateAuto": false,
+  "editor.formatOnPaste": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "files.exclude": {
+    "node_modules/": true
+  },
+  "css.customData": [
+    /* Workaround until VSCode supports container queries */
+    "./.vscode/css-container-custom-data.json"
+  ],
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.preferences.quoteStyle": "double"
+}

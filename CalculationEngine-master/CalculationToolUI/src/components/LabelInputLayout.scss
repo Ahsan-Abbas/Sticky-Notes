@@ -1,0 +1,33 @@
+#calculation-ui {
+  .label-input-layout {
+    /* TODO: implement "bottom" */
+
+    /* TODO: fix dropdown arrow location */
+    /* TODO: fix button sizing */
+    margin: 5px 0;
+
+    &.right {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-areas: "c1 c2";
+
+      & :nth-child(1) {
+        grid-area: c2;
+      }
+
+      & :nth-child(2) {
+        grid-area: c1;
+      }
+    }
+
+    &.left {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-areas: "c1 c2";
+    }
+  }
+
+  .col-0 .label-input-layout.left {
+    grid-template-columns: unset;
+  }
+}

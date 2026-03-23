@@ -1,0 +1,43 @@
+#calculation-ui {
+  .iconbutton {
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s all;
+
+    >img {
+      margin: 0;
+    }
+
+    &.iconbutton-center {
+      margin: 0px auto;
+    }
+
+    &.iconbutton-right {
+      margin: 0px 0px 0px auto;
+    }
+
+    &.iconbutton-large,
+    &.iconbutton-large img {
+      width: 40px;
+      height: 40px;
+    }
+
+    &.iconbutton-medium,
+    &.iconbutton-medium img {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.iconbutton-small,
+    &.iconbutton-small img {
+      width: 16px;
+      height: 16px;
+    }
+
+    &.iconbutton-disabled {
+      pointer-events: none;
+      filter: invert(50%);
+    }
+  }
+}

@@ -1,0 +1,92 @@
+#calculation-ui {
+  .checkbox-wrapper {
+    display: flex;
+
+    &.center {
+      justify-content: center;
+    }
+
+    &.right {
+      justify-content: flex-end;
+    }
+
+    .checkbox-label {
+      display: block;
+      position: relative;
+      padding: 6px 30px !important;
+      margin-bottom: 12px !important;
+      cursor: pointer;
+      font-size: var(--base-text-size) !important;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked {
+          +.checkmark {
+            background-color: var(--input-primary-color);
+
+            &:after {
+              display: block;
+            }
+          }
+        }
+
+        &:disabled {
+          +.checkmark {
+            opacity: 0.25;
+            //background-color: rgba(210, 0, 20, 0.2);
+            //border: 2px solid rgba(210, 0, 20, 0.2) !important;
+          }
+        }
+      }
+
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 24px;
+        width: 24px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        border: 2px solid var(--input-primary-color) !important;
+
+        &:after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: 5px;
+          top: 0px;
+          width: 9px;
+          height: 17px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .checkbox-wrapper {
+      .checkbox-label {
+        .checkmark {
+          height: 20px;
+          width: 20px;
+
+          &:after {
+            width: 6px;
+            height: 14px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+#calculation-ui {
+  .bullet {
+    span {
+      margin-bottom: 1rem;
+      display: block;
+
+      &.center {
+        text-align: center;
+      }
+
+      &.right {
+        text-align: right;
+      }
+    }
+
+    ul {
+      margin: 0rem 3rem 0rem 3rem;
+
+      li {
+        margin-bottom: 0.75rem;
+      }
+
+      &.bullet-list {
+        list-style-type: disc;
+      }
+
+      &.numbered-list {
+        list-style-type: decimal;
+      }
+
+      &.warning {
+        list-style-type: none;
+
+        li {
+          color: rgba(0, 0, 0, 0.5) !important;
+          font-weight: 300;
+
+          img {
+            margin-right: 5px;
+            height: 16px;
+            width: auto;
+            position: relative;
+            top: 2px;
+          }
+        }
+      }
+    }
+  }
+}

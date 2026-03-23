@@ -1,0 +1,214 @@
+#calculation-ui {
+  .button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid var(--input-primary-color);
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 800;
+    padding: 10px 40px;
+    transition: 0.2s all;
+
+    span {
+      margin: 0 10px;
+    }
+
+    .icon {
+      height: 17px;
+      top: 2px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      &.icon-left {
+        //margin-right: 0 20px 0 0;
+        left: 10px;
+      }
+
+      &.icon-right {
+        // margin-left: 0 0 0 20px;
+        right: 0px
+      }
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &.button-center {
+      margin: 0px auto;
+    }
+
+    &.button-right {
+      margin: 0px 0px 0px auto;
+    }
+
+    &.button-large {
+      font-size: var(--text-size-large);
+      line-height: 2;
+      border-width: 4px;
+      min-width: 200px;
+    }
+
+    &.button-medium {
+      font-size: var(--base-text-size);
+      line-height: 1.5;
+      border-width: 2px;
+      min-width: 140px;
+      height: 47px;
+
+      .icon {
+        height: 14px;
+      }
+    }
+
+    &.button-small {
+      font-size: var(--text-size-small);
+
+      .icon {
+        height: 10px;
+      }
+    }
+
+    &.button-primary {
+      color: var(--input-secondary-color);
+      background-color: var(--input-primary-color);
+
+      .icon {
+        color: #ffffff;
+
+        path {
+          fill: #ffffff;
+        }
+      }
+
+      &:hover {
+        background-color: var(--input-primary-color-hover);
+        border-color: var(--input-primary-color-hover);
+        transition: 0.15s ease-in;
+      }
+
+      &.button-disabled {
+        pointer-events: none;
+        color: var(--color-white);
+        background-color: rgba(var(--primary-color-rgb), 0.5);
+        border: 2px solid rgba(var(--primary-color-rgb), 0.01);
+      }
+    }
+
+    &.button-secondary {
+      color: var(--color-black);
+      background-color: var(--neutral-400);
+      border: 2px solid var(--neutral-500);
+
+      .icon {
+        color: var(--color-black);
+
+        path {
+          fill: var(--color-black);
+        }
+      }
+
+      &:hover {
+        background-color: var(--neutral-500);
+        transition: 0.15s ease-in;
+        border-color: var(--neutral-500);
+
+        .icon {
+          transition: 0.15s ease-in;
+        }
+      }
+
+      &.button-disabled {
+        pointer-events: none;
+        color: var(--color-white);
+        background-color: rgba(var(--secondary-color-rgb), 0.5);
+        border: 2px solid rgba(var(--secondary-color-rgb), 0.5);
+      }
+    }
+
+    &.button-ghost {
+      background-color: var(--color-white);
+      color: var(--color-black);
+      border: none;
+      padding: 5px 10px 5px 10px;
+      min-width: auto;
+      height: auto;
+
+      &.button-disabled {
+        background-color: transparent;
+        color: rgba(0, 0, 0, 0.5);
+        border: none;
+
+        .icon {
+          img {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      .icon {
+        color: var(--input-primary-color);
+
+        &.icon-left {
+          left: 5px
+        }
+
+
+        path {
+          fill: var(--input-primary-color);
+        }
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+
+  }
+
+  @media (max-width: 768px) {
+    .button {
+
+      span {
+        margin: 0 20px;
+      }
+
+      &.button-medium {
+        height: 40px;
+        font-size: 14px;
+        line-height: initial;
+        padding: 0 10px;
+        min-width: auto;
+        display: flex;
+        align-items: center;
+
+        img {
+          margin: 0;
+        }
+
+        .icon {
+          height: 14px;
+          position: relative;
+          transform: none;
+          top: auto;
+          margin: 0;
+
+          &.icon-left {
+            left: 10px;
+          }
+
+          &.icon-right {
+            right: 5px
+          }
+        }
+      }
+    }
+  }
+}
